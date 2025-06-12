@@ -1,4 +1,4 @@
 # java-calculator
-Membuat aplikasi/Software Kalkulator dengan Java
+Membuat aplikasi/software kalkulator dengan Java
 
 ## Because Java is the key
