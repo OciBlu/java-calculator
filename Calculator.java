@@ -17,8 +17,15 @@ public class Calculator {
 
     //Set buttonValue
     String[] buttonValue = {
-        "AC", "+/-", "%", ":",
+        "AC", "+/-", "%", "÷",
+        "7", "8", "9", "×",
+        "4", "5", "6", "-",
+        "1", "2", "3", "+",
+        "0", ".", "√", "="
     };
+
+    String[] rightSymbol = {"÷", "x", "-", "+", "="};
+    String[] topSymbol = {"AC", "+/-", "%"};
 
     //Deklarasi variabel Contain & Components
     JFrame frame = new JFrame("Calculator");
