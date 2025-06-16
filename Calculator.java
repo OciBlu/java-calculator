@@ -61,7 +61,7 @@ public class Calculator {
         buttonsPanel.setBackground(customBlack);
         frame.add(buttonsPanel);
 
-        //set function buttonPanel
+        //Set function buttonPanel
         for(int i = 0; i < buttonValues.length; i++){
             JButton button = new JButton();
             String buttonValue = buttonValues[i];
