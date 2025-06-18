@@ -21,11 +21,11 @@ public class Calculator {
         "7", "8", "9", "×",
         "4", "5", "6", "-",
         "1", "2", "3", "+",
-        "0", ".", "v", "="
+        "0", ".", "√", "="
     };
 
-    String[] rightSymbol = {"÷", "x", "-", "+", "="};
-    String[] topSymbol = {"AC", "+/-", "%"};
+    String[] rightSymbols = {"÷", "×", "-", "+", "="};
+    String[] topSymbols = {"AC", "+/-", "%"};
 
     //Deklarasi variabel Contain & Components
     JFrame frame = new JFrame("Calculator");
@@ -69,6 +69,21 @@ public class Calculator {
             button.setText(buttonValue);
             button.setFocusable(false);
             button.setBorder(new LineBorder(customBlack));
+
+            //function setting warna top & right symbols button
+            if (Arrays.asList(topSymbols).contains(buttonValue)){
+                button.setBackground(customLightGrey);
+                button.setForeground(customBlack);
+            }
+            else if (Arrays.asList(rightSymbols).contains(buttonValue)){
+                button.setBackground(customOrange);
+                button.setForeground(Color.white);
+            }
+            else {
+                button.setBackground(customDarkGrey);
+                button.setForeground(Color.white);
+            }
+
             buttonsPanel.add(button);
         }
         frame.setVisible(true);
