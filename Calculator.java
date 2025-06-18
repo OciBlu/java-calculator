@@ -36,10 +36,10 @@ public class Calculator {
     Calculator(){
 
         //Set variable frame
-        frame.setVisible(true);
-        frame.setSize(boardWidth, boardHeight);
+        //frame.setVisible(true);
+        frame.setSize(boardWidth, boardHeight); //boardWidth, boardHeight
         frame.setLocationRelativeTo(null);
-        frame.setResizable(true);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
@@ -66,9 +66,11 @@ public class Calculator {
             JButton button = new JButton();
             String buttonValue = buttonValues[i];
             button.setFont(new Font("Arial", Font.PLAIN, 30));
-            button.setFocusable(false);
             button.setText(buttonValue);
+            button.setFocusable(false);
+            button.setBorder(new LineBorder(customBlack));
             buttonsPanel.add(button);
         }
+        frame.setVisible(true);
     }
 }
