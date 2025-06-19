@@ -83,8 +83,44 @@ public class Calculator {
                 button.setBackground(customDarkGrey);
                 button.setForeground(Color.white);
             }
-
             buttonsPanel.add(button);
+
+            button.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    JButton button = (JButton) e.getSource();
+                    String buttonValue = button.getText();
+                    if (Arrays.asList(topSymbols).contains(buttonValue)){
+
+                    }
+                    else if (Arrays.asList(topSymbols).contains(buttonValue)){
+                        if (buttonValue == "AC") {
+
+                        }
+                        else if (buttonValue == "+/-") {
+
+                        }
+                        else if (buttonValue == "%") {
+                            
+                        }
+                    }
+                    else{ //digit or .
+                        if (buttonValue == "."){
+                            if (!displayLabel.getText().contains(buttonValue)){
+                                displayLabel.setText(displayLabel.getText() + buttonValue);
+                            }
+                        }
+                        else if ("0123456789".contains(buttonValue)){
+                            if (displayLabel.getText()=="0"){
+                                displayLabel.setText(buttonValue);
+                            }
+                            else {
+                                displayLabel.setText(displayLabel.getText() + buttonValue);
+                            }
+                        }
+                      
+                    }
+                }
+            });
         }
         frame.setVisible(true);
     }
