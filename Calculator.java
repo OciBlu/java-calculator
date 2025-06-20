@@ -33,6 +33,11 @@ public class Calculator {
     JPanel displayPanel = new JPanel();
     JPanel buttonsPanel = new JPanel();
 
+    //A+B, A-B, A*B, A/B
+    String A = "0";
+    String operator = null;
+    String B = null;
+
     Calculator(){
 
         //Set variable frame
@@ -89,14 +94,18 @@ public class Calculator {
                 public void actionPerformed(ActionEvent e){
                     JButton button = (JButton) e.getSource();
                     String buttonValue = button.getText();
-                    if (Arrays.asList(topSymbols).contains(buttonValue)){
-
+                    if (Arrays.asList(topSymbols).contains(buttonValue)) {
+                         if (buttonValue == "="){
+                            
+                         }
                     }
-                    else if (Arrays.asList(topSymbols).contains(buttonValue)){
+                    else if (Arrays.asList(topSymbols).contains(buttonValue)) {
                         if (buttonValue == "AC") {
-
+                            clearAll();
+                            displayLabel.setText("0");
                         }
                         else if (buttonValue == "+/-") {
+
 
                         }
                         else if (buttonValue == "%") {
@@ -123,5 +132,11 @@ public class Calculator {
             });
         }
         frame.setVisible(true);
+    }
+
+    void clearAll(){
+       A = "0";
+       operator = null;
+       B = null;
     }
 }
