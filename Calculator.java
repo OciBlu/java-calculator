@@ -94,10 +94,8 @@ public class Calculator {
                 public void actionPerformed(ActionEvent e){
                     JButton button = (JButton) e.getSource();
                     String buttonValue = button.getText();
-                    if (Arrays.asList(topSymbols).contains(buttonValue)) {
-                         if (buttonValue == "="){
-                            
-                         }
+                    if (Arrays.asList(rightSymbols).contains(buttonValue)) {
+                         
                     }
                     else if (Arrays.asList(topSymbols).contains(buttonValue)) {
                         if (buttonValue == "AC") {
@@ -105,11 +103,14 @@ public class Calculator {
                             displayLabel.setText("0");
                         }
                         else if (buttonValue == "+/-") {
-
-
+                            double numDisplay = Double.parseDouble(displayLabel.getText());
+                            numDisplay *= -1;
+                            displayLabel.setText(removeZeroDecinmal(numDisplay));
                         }
                         else if (buttonValue == "%") {
-                            
+                            double numDisplay = Double.parseDouble(displayLabel.getText());
+                            numDisplay /= 100;
+                            displayLabel.setText(removeZeroDecinmal(numDisplay));
                         }
                     }
                     else{ //digit or .
@@ -126,17 +127,25 @@ public class Calculator {
                                 displayLabel.setText(displayLabel.getText() + buttonValue);
                             }
                         }
-                      
                     }
                 }
             });
+            frame.setVisible(true);
         }
-        frame.setVisible(true);
+        
     }
 
     void clearAll(){
        A = "0";
        operator = null;
        B = null;
+       displayLabel.setText("0");
     }
-}
+
+    String removeZeroDecinmal(double numDisplay) {
+        if (numDisplay % 1 == 0) {
+            return Integer .toString((int) numDisplay);
+        }
+        return Double.toString(numDisplay);
+    }
+}           
