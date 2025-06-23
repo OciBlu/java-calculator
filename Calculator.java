@@ -95,7 +95,35 @@ public class Calculator {
                     JButton button = (JButton) e.getSource();
                     String buttonValue = button.getText();
                     if (Arrays.asList(rightSymbols).contains(buttonValue)) {
-                         
+                         if(buttonValue == "=") {
+                            if(A != null){
+                                B = displayLabel.getText();
+                                double numA = Double.parseDouble(A);
+                                double numB = Double.parseDouble(B);
+
+                                if(operator == "+"){
+                                    displayLabel.setText(removeZeroDecinmal(numA+numB));
+                                }
+                                else if(operator == "-"){
+                                    displayLabel.setText(removeZeroDecinmal(numA-numB));
+                                }
+                                else if(operator == "×"){
+                                    displayLabel.setText(removeZeroDecinmal(numA*numB));
+                                }
+                                else if(operator == "÷"){
+                                    displayLabel.setText(removeZeroDecinmal(numA/numB));
+                                }
+                                clearAll();
+                            }
+                         }
+                         else if("+-×÷".contains(buttonValue)) {
+                            if(operator == null){
+                                A = displayLabel.getText();
+                                displayLabel.setText("0");
+                                B = "0";
+                            }
+                            operator = buttonValue;
+                         }
                     }
                     else if (Arrays.asList(topSymbols).contains(buttonValue)) {
                         if (buttonValue == "AC") {
@@ -139,7 +167,7 @@ public class Calculator {
        A = "0";
        operator = null;
        B = null;
-       displayLabel.setText("0");
+       
     }
 
     String removeZeroDecinmal(double numDisplay) {
